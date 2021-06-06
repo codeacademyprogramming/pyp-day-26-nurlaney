@@ -3,7 +3,7 @@ import { ActionTypes } from "../actions/ActionTypes";
 import { Action } from "../../../../redux/Types/RoomAction";
 import { IRoom } from "../../../models/Rooms";
 
-interface IInitial {
+export interface IInitial {
   data: IRoom[];
   error: null;
   status: ASYNC_STATUS;
@@ -15,13 +15,13 @@ const initialValue: IInitial = {
   status: ASYNC_STATUS.IDLE,
 };
 
-export const roomReducer = (state = initialValue, action: Action) => {
+export const roomReducer = (state = initialValue, action: Action): IInitial => {
   switch (action.type) {
     case ActionTypes.LOAD_ROOMS:
       return {
         ...state,
         status: ASYNC_STATUS.LOADING,
-        data: action.payload,
+        data: [],
         error: null,
       };
     case ActionTypes.LOAD_ROOMS_SUCCESS:
@@ -38,7 +38,6 @@ export const roomReducer = (state = initialValue, action: Action) => {
         data: action.payload,
         error: action.error,
       };
-
     default:
       return state;
   }

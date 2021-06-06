@@ -1,6 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
+import { IRoom } from "../../models/Rooms";
 
-export const Sketch = () => {
+interface Props {
+  rooms: IRoom[];
+}
+
+export const Sketch: FC<Props> = ({ rooms }) => {
   return (
     <>
       <svg
@@ -30,142 +35,128 @@ export const Sketch = () => {
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[0].reservations.length ? "black" : "blue"}
               x="360.5"
               y="83.5"
               width="47"
               height="51"
-              data-id="1"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[1].reservations.length ? "black" : "blue"}
               x="411.5"
               y="83.5"
               width="48"
               height="51"
-              data-id="2"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[2].reservations.length ? "black" : "blue"}
               x="360.5"
               y="137.5"
               width="47"
               height="47"
-              data-id="3"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[3].reservations.length ? "black" : "blue"}
               x="411.5"
               y="137.5"
               width="48"
               height="47"
-              data-id="4"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[4].reservations.length ? "black" : "blue"}
               x="205.5"
               y="226.5"
               width="48"
               height="47"
-              data-id="5"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[5].reservations.length ? "black" : "blue"}
               x="256.5"
               y="226.5"
               width="46"
               height="47"
-              data-id="6"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[6].reservations.length ? "black" : "blue"}
               x="305.5"
               y="226.5"
               width="46"
               height="47"
-              data-id="7"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[7].reservations.length ? "black" : "blue"}
               x="205.5"
               y="276.5"
               width="48"
               height="47"
-              data-id="8"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[8].reservations.length ? "black" : "blue"}
               x="256.5"
               y="276.5"
               width="46"
               height="47"
-              data-id="9"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[9].reservations.length ? "black" : "blue"}
               x="305.5"
               y="276.5"
               width="46"
               height="47"
-              data-id="10"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[10].reservations.length ? "black" : "blue"}
               x="28.5"
               y="17.5"
               width="207"
               height="145"
-              data-id="11"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[11].reservations.length ? "black" : "blue"}
               x="20.5"
               y="202.5"
               width="129"
               height="86"
-              data-id="12"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[12].reservations.length ? "black" : "blue"}
               x="20.5"
               y="292.5"
               width="129"
               height="65"
-              data-id="13"
             ></rect>
             <rect
               id="Rectangle"
               stroke="#979797"
-              fill="#D8D8D8"
+              fill={rooms[13].reservations.length ? "black" : "blue"}
               x="20.5"
               y="361.5"
               width="129"
               height="61"
-              data-id="14"
             ></rect>
           </g>
         </g>
