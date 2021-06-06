@@ -4,7 +4,7 @@ interface IReservation {
   reservedBy: string;
   from: string;
   to: string;
-  notes: string;
+  note: string;
 }
 
 export interface IRoom {
