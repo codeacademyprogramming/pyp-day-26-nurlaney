@@ -6,12 +6,14 @@ interface Props {
   rooms: IRoom[];
   getReservations: (id: number) => void;
   disableHelper: () => void;
+  openForm: () => void;
 }
 
 export const Sketch: FC<Props> = ({
   rooms,
   getReservations,
   disableHelper,
+  openForm,
 }) => {
   return (
     <>
@@ -49,6 +51,7 @@ export const Sketch: FC<Props> = ({
                 data-id={room.id}
                 onMouseOver={() => getReservations(room.id)}
                 onMouseOut={() => disableHelper()}
+                onClick={() => openForm()}
               ></rect>
             ))}
           </g>
