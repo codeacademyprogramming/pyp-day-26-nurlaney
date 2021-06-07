@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { Sketch } from "./Sketch";
 import Loader from "react-loader-spinner";
@@ -7,6 +7,7 @@ import "./plan.scss";
 import { ASYNC_STATUS } from "../../../redux/AsyncStatus";
 import { IReservation, IRoom } from "../../models/Rooms";
 import { Button, TextField } from "@material-ui/core";
+import { addReservations } from "./actions/roomsActions";
 
 const InitialValue = {
   _id: "",
@@ -34,6 +35,16 @@ export const Plan = () => {
     note: "",
     reservedBy: "",
   });
+  const dispatch = useDispatch();
+
+  const addReservation = (e: React.MouseEvent<HTMLFormElement, MouseEvent>) => {
+    e.preventDefault();
+    const payload = {
+      ...formState,
+    };
+    const dispatchAddReservation = addReservations(dispatch);
+    dispatchAddReservation(payload);
+  };
 
   function handleChange(
     evt: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -45,7 +56,6 @@ export const Plan = () => {
         [name]: value,
       };
     });
-    console.log(formState);
   }
 
   const findReservationsById = useCallback(
@@ -83,7 +93,7 @@ export const Plan = () => {
             </div>
             {showForm ? (
               <div className="col-md-5">
-                <form noValidate autoComplete="off">
+                <form noValidate autoComplete="off" onSubmit={addReservation}>
                   <TextField
                     id="date"
                     label="From"
@@ -119,7 +129,7 @@ export const Plan = () => {
                   <Button onClick={closeForm} variant="contained">
                     Close
                   </Button>
-                  <Button variant="contained" color="primary">
+                  <Button type="submit" variant="contained" color="primary">
                     Save
                   </Button>
                 </form>

@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import { HttpClient } from "../../httpClient/index";
-import { IRoom } from "../../models/Rooms";
+import { IReservation, IRoom } from "../../models/Rooms";
 
 class RoomsService extends HttpClient {
   constructor() {
@@ -9,6 +9,10 @@ class RoomsService extends HttpClient {
 
   getRooms(): Promise<AxiosResponse<IRoom>> {
     return this.get("rooms");
+  }
+
+  addReservations(body: IReservation): Promise<AxiosResponse<IRoom>> {
+    return this.post("rooms", body);
   }
 }
 

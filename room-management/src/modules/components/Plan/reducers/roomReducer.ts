@@ -38,6 +38,27 @@ export const roomReducer = (state = initialValue, action: Action): IInitial => {
         data: action.payload,
         error: action.error,
       };
+    case ActionTypes.ADD_RESERVATIONS as ActionTypes:
+      return {
+        ...state,
+        status: ASYNC_STATUS.LOADING,
+        data: [],
+        error: null,
+      };
+    case ActionTypes.ADD_RESERVATIONS_SUCCESS as ActionTypes:
+      return {
+        ...state,
+        status: ASYNC_STATUS.SUCCESS,
+        data: action.payload,
+        error: null,
+      };
+    case ActionTypes.ADD_RESERVATIONS_ERROR as ActionTypes:
+      return {
+        ...state,
+        status: ASYNC_STATUS.ERROR,
+        data: action.payload,
+        error: action.error,
+      };
     default:
       return state;
   }

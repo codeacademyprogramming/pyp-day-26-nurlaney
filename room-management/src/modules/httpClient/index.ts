@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IReservation } from "../models/Rooms";
 
 export class HttpClient {
   baseUrl: string;
@@ -11,7 +12,7 @@ export class HttpClient {
     return await axios.get(`${this.baseUrl}/${url}`);
   }
 
-  async post(url: string, body: object) {
-    return await axios.post(`${this.baseUrl}/${url}`, body);
+  async post(url: string, body: IReservation) {
+    return await axios.post(`${this.baseUrl}/${url}/${body._id}`, body);
   }
 }
