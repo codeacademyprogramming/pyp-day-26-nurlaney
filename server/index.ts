@@ -2,9 +2,11 @@ import { Room } from "./models";
 const express = require("express");
 const port = 8000;
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const router = express.Router();

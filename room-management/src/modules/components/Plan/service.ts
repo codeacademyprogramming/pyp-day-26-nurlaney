@@ -4,7 +4,7 @@ import { IRoom } from "../../models/Rooms";
 
 class RoomsService extends HttpClient {
   constructor() {
-    super("https://60baffde42e1d0001762031a.mockapi.io");
+    super("http://localhost:8000");
   }
 
   getRooms(): Promise<AxiosResponse<IRoom>> {
