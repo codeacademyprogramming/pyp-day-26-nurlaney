@@ -1,0 +1,32 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.res-wrapper {
+  border: 1px dotted;
+  border-radius: 2px;
+  padding: 15px;
+  background-color: #9bcdee1a;
+  .reservation {
+    border-bottom: 1px solid;
+    padding: 10px 0;
+    &:last-child {
+      border: none;
+    }
+    span {
+      margin: 0 5px;
+    }
+  }
+}
+.MuiFormControl-root {
+  display: block !important;
+}
+.MuiInputBase-root {
+  width: 100%;
+}
+.MuiButtonBase-root {
+  margin-top: 15px !important;
+  margin-right: 15px !important;
+}
